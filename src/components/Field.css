@@ -1,0 +1,5 @@
+.field {
+	display: grid;
+	gap: 0;
+	justify-content: center;
+}

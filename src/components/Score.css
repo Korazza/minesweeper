@@ -1,0 +1,46 @@
+.score-container {
+	width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	place-items: center;
+	font-size: 1.2em;
+	font-weight: 500;
+}
+
+.score {
+	display: flex;
+	gap: 0.5em;
+	place-items: center;
+}
+
+.value {
+	font-size: 1.1rem;
+	padding: 0.4em;
+	border-radius: 0.6em;
+	background: rgba(255, 255, 255, 0.15);
+	box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(16px);
+}
+
+.reset {
+	border: 0;
+	font-size: 1.1rem;
+	padding: 0.4em;
+	border-radius: 0.6em;
+	background: rgba(255, 255, 255, 0.15);
+	box-shadow: 0 2px 16px rgba(0, 0, 0, 0.1);
+	backdrop-filter: blur(16px);
+	color: white;
+	transition: all 80ms ease-in-out;
+	cursor: pointer;
+}
+
+.reset:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.reset:active {
+	box-shadow: 0 8px 64px rgba(0, 0, 0, 0.2);
+	backdrop-filter: blur(64px);
+}
