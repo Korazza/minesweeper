@@ -6,9 +6,11 @@ import Select, { Option } from './components/Select'
 import Score from './components/Score'
 import { Difficulty, DifficultyName } from './types/difficulty'
 import './App.css'
+import useLocalStorage from './hooks/useLocalStorage'
 
 const App = () => {
-	const [difficulty, setDifficulty] = useState<DifficultyName>(
+	const [difficulty, setDifficulty] = useLocalStorage(
+		'difficulty',
 		DifficultyName.Beginner
 	)
 	const [options] = useState<Option[]>([
