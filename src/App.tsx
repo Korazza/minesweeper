@@ -1,32 +1,25 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import GridProvider from './contexts/grid'
 import Field from './components/Field'
 import Select, { Option } from './components/Select'
 import Score from './components/Score'
+import useLocalStorage from './hooks/useLocalStorage'
 import { Difficulty, DifficultyName } from './types/difficulty'
 import './App.css'
-import useLocalStorage from './hooks/useLocalStorage'
+
+const options: Option[] = Object.values(DifficultyName).map(
+	(difficultyName): Option => ({
+		label: `${difficultyName} (${Difficulty[difficultyName].width} x ${Difficulty[difficultyName].height})`,
+		value: difficultyName,
+	})
+)
 
 const App = () => {
 	const [difficulty, setDifficulty] = useLocalStorage(
 		'difficulty',
 		DifficultyName.Beginner
 	)
-	const [options] = useState<Option[]>([
-		{
-			label: `${DifficultyName.Beginner} (${Difficulty.Beginner.width} x ${Difficulty.Beginner.height})`,
-			value: DifficultyName.Beginner,
-		},
-		{
-			label: `${DifficultyName.Intermediate} (${Difficulty.Intermediate.width} x ${Difficulty.Intermediate.height})`,
-			value: DifficultyName.Intermediate,
-		},
-		{
-			label: `${DifficultyName.Expert} (${Difficulty.Expert.width} x ${Difficulty.Expert.height})`,
-			value: DifficultyName.Expert,
-		},
-	])
 
 	const handleSelection = (e: React.ChangeEvent<HTMLSelectElement>) => {
 		setDifficulty(e.target.value as DifficultyName)
